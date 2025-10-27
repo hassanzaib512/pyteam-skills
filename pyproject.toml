@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyteam-skills"
+version = "1.0.2"
+description = "Skill matrix and dashboard from Git repos"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Hassan Zaib Hayat", email = "hassanzaibhayatske@gmail.com" }]
+keywords = ["skills", "dashboard", "git", "pydriller"]
+dependencies = [
+  "pydriller>=2.6",
+  "pandas>=2.0",
+  "typer>=0.12",
+  "rich>=13.0",
+  "pyyaml>=6.0", 
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/hassanzaib512/pyteam-skills"
+Issues = "https://github.com/hassanzaib512/pyteam-skills/issues"
+
+[project.scripts]
+pyteam-skills = "pyteam_skills.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pyteam_skills"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/pyteam_skills/**",
+  "README.md",
+  "LICENSE",
+  "pyproject.toml",
+  "examples/example.png",
+]
+exclude = ["tests"]

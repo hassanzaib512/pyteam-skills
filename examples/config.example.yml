@@ -1,0 +1,48 @@
+ignore_authors:
+  - "bot@"
+  - "dependabot"
+
+# Map file extensions to skills
+extension_skills:
+  ".py": ["Python"]
+  ".js": ["JavaScript"]
+  ".ts": ["TypeScript"]
+  ".tsx": ["React", "TypeScript"]
+  ".jsx": ["React", "JavaScript"]
+  ".sql": ["SQL"]
+  ".css": ["CSS"]
+  ".scss": ["CSS"]
+  ".yaml": ["DevOps"]
+  ".yml": ["DevOps"]
+  ".tf": ["Terraform"]
+  ".sh": ["Shell"]
+  ".go": ["Go"]
+  ".rs": ["Rust"]
+  ".java": ["Java"]
+
+# Path-based overrides (prefix match)
+path_skills:
+  "migrations/": ["SQL", "Data Modeling"]
+  "infra/": ["DevOps"]
+  "docker/": ["DevOps"]
+  "frontend/": ["React", "JavaScript"]
+  "backend/": ["Python"]
+  "etl/": ["Data Engineering"]
+
+# Regex overrides (first match wins); Python-style regex strings
+regex_skills:
+  ".*notebook.*\\.ipynb$": ["Data Science"]
+  ".*analytics/.*\\.py$": ["Data Analytics"]
+  ".*ml/.*\\.(py|ipynb)$": ["Machine Learning"]
+
+# Scoring weights
+weights:
+  lines_changed: 1.0   # added + deleted
+  files_touched: 0.3
+  commit_bonus: 0.2    # flat bonus per commit affecting a skill
+
+# Recency decay (half-life in days)
+decay_half_life_days: 120
+time_since: null
+time_until: null
+author_aliases: {}
